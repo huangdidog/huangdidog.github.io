@@ -11,6 +11,32 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
+<script src="//cdn.bootcss.com/pace/1.0.2/pace.min.js"></script>
+<link href="//cdn.bootcss.com/pace/1.0.2/themes/pink/pace-theme-flash.css" rel="stylesheet">
+<style>
+    .pace .pace-progress {
+        background: #1E92FB; /*进度条颜色*/
+        height: 3px;
+    }
+    .pace .pace-progress-inner {
+         box-shadow: 0 0 10px #1E92FB, 0 0 5px     #1E92FB; /*阴影颜色*/
+    }
+    .pace .pace-activity {
+        border-top-color: #1E92FB;    /*上边框颜色*/
+        border-left-color: #1E92FB;    /*左边框颜色*/
+    }
+</style>
+<script>
+    (function(){
+        if('baishikele1'){
+            if (prompt('请输入文章密码') !== 'baishikele1'){
+                alert('密码错误！');
+                history.back();
+            }
+        }
+    })();
+</script>
+
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -71,7 +97,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="PS3,Games," />
+  <meta name="keywords" content="PS3," />
 
 
 
@@ -80,7 +106,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+  <link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico?v=5.1.0" />
 
 
 
@@ -88,14 +114,14 @@
 
 
 <meta name="description" content="我的世界">
-<meta name="keywords" content="PS3,Games">
+<meta name="keywords" content="PS3">
 <meta property="og:type" content="article">
 <meta property="og:title" content="测试文章">
 <meta property="og:url" content="http://yoursite.com/2017/07/28/title/index.html">
 <meta property="og:site_name" content="HuangDi">
 <meta property="og:description" content="我的世界">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-07-28T03:48:01.000Z">
+<meta property="og:updated_time" content="2017-07-29T09:49:09.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="测试文章">
 <meta name="twitter:description" content="我的世界">
@@ -320,7 +346,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="HuangDi">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/face.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -394,7 +420,7 @@
 
           
             <span class="post-meta-divider">|</span>
-            <span class="page-pv"><i class="fa fa-file-o"></i>热度：
+            <span class="page-pv">热度：
             <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>°c
             </span>
           
@@ -427,6 +453,17 @@
 
     <div>
       
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+
+      
+    </div>
+
+    <div>
+      
         
 
       
@@ -443,9 +480,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/PS3/" rel="tag"># PS3</a>
-          
-            <a href="/tags/Games/" rel="tag"># Games</a>
+            <a href="/tags/PS3/" rel="tag"><i class="fa fa-tag"></i> PS3</a>
           
         </div>
       
@@ -480,6 +515,26 @@
 
 
     <div class="post-spread">
+      
+        <!-- JiaThis Button BEGIN -->
+<div class="jiathis_style">
+  <a class="jiathis_button_tsina"></a>
+  <a class="jiathis_button_weixin"></a>
+  <a class="jiathis_button_cqq"></a>
+  <a class="jiathis_button_douban"></a>
+  <a class="jiathis_button_qzone"></a>
+  <a class="jiathis_button_copy"></a>
+  <a href="http://www.jiathis.com/share" class="jiathis jiathis_txt jiathis_separator jtico jtico_jiathis" target="_blank"></a>
+  <a class="jiathis_counter_style"></a>
+</div>
+<script type="text/javascript" >
+  var jiathis_config={
+    hideMore:false
+  }
+</script>
+<script type="text/javascript" src="http://v3.jiathis.com/code/jia.js" charset="utf-8"></script>
+<!-- JiaThis Button END -->
+
       
     </div>
   </div>
@@ -526,7 +581,7 @@
       <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
+               src="/images/face.jpg"
                alt="HuangDi" />
           <p class="site-author-name" itemprop="name">HuangDi</p>
            
@@ -560,7 +615,7 @@
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">标签</span>
               
             </div>
@@ -626,7 +681,7 @@
 </div>
 
 
-<div class="powered-by">
+<!--<div class="powered-by">
   由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
 </div>
 
@@ -635,7 +690,7 @@
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Pisces
   </a>
-</div>
+</div>-->
 
 
         
