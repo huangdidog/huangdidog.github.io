@@ -1,19 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[Hello World]]></title>
-    <url>%2F2017%2F07%2F29%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick StartCreate a new post1$ hexo new "My New Post" More info: Writing Run server1$ hexo server More info: Server Generate static files1$ hexo generate More info: Generating Deploy to remote sites1$ hexo deploy More info: Deployment]]></content>
-  </entry>
-  <entry>
-    <title><![CDATA[测试文章]]></title>
-    <url>%2F2017%2F07%2F28%2Ftitle%2F</url>
-    <content type="text"><![CDATA[密码：baishikele1]]></content>
+    <title><![CDATA[预解析和作用域]]></title>
+    <url>%2F2017%2F07%2F30%2Fscope%2F</url>
+    <content type="text"><![CDATA[作用域（scope） 通常来说，一段程序代码中所用到的数据并不总是有效/可用的，而限定这个数据的可用性的代码范围就是这个名字的作用域（一条数据可以在哪个范围中使用） 作用域的使用提高了程序逻辑的局部性，增强程序的可靠性，减少名字冲突 JS中，变量的作用域有两种，一种是全局作用域（全局变量），一种局部作用域（局部变量） 一个变量是全局变量，还是局部变量，主要还是看变量声明的位置，声明在函数内部 就是这个函数的局部变量，（在JS的ES5.1中，只有函数可以产生作用域） 加载Window上边的内容 作用域 属于全局的，属于window的属性，可以不用写window. 直接写属性名 变量如果不加声明，就默认 认为是window的内容，作用域变成全局 没有声明在任何函数内部的变量（全局），就是全局变量，在全局的任何地方都可以调用和修改，尽量不要使用全局变量，会造成全局污染（命名冲突） 全局作用域 在任何地方都能访问函数外定义的变量拥有全局作用域 不适用var定义的变量拥有全局作用域 所有window对象上的属性拥有全局作用域 没有声明在任何函数内部的函数拥有全局作用域 局部作用域 只能在函数内部访问 使用var在函数内部定义的变量，和使用function在函数内部声明的函数，拥有局部作用域 [[Scopes]] ：作用域 当我们声明一个函数的时候，同事该函数就会创建一个属性，这个属性是[[Scopes]]（作用域），我们在这个函数中声明的变量都会被存入这个函数的[[Scopes]]属性中 变量与函数的查找规则 当我们调用一条数据的时候，JS首先会在当前作用域中进行查找，如果找不到，就向上找到父级的作用域，如果在父级的作用域中也找不到，就继续向上查找，直到window的作用域，如果在window中也找不到，报错 预解析浏览器每读到一个script标签或function，先不执行任何代码，会先把整个代码快速的浏览一遍，然后从中挑出var和function两个关键字 var ：预解析遇到var 就把var 连同他后边的名字一块，提到script（或function）的最前边，预解析完成之后，在从上向下一行一行执行代码，如果碰到了=就赋值 function ：预解析遇到function，就把整个函数提到script（或function）的最前边（跟在var的后边，预解析先解析var 再解析function） 闭包( 里边可以访问外边的，外边的不能访问里边的 )形式函数中套了一个函数，内层函数可以访问外层函数中私有数据 好处 ：模块化，避免全局污染 坏处 ：使用不当可能会造成内存泄漏，在闭包中应用比较复杂的情况下，闭包内函数作用域下的数据，会一直得不到释放 闭包的应用1234567for(var i = 0; i&lt;btn.leng;i++)&#123; (function(i)&#123; btn[i].onclick = function()&#123; alert(i); &#125; &#125;)(i)&#125;]]></content>
       <categories>
-        <category>Diary</category>
+        <category>JS</category>
       </categories>
       <tags>
-        <tag>PS3</tag>
+        <tag>预解析</tag>
+        <tag>作用域</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[函数]]></title>
+    <url>%2F2017%2F07%2F30%2Ffunction%2F</url>
+    <content type="text"><![CDATA[函数是由事件驱动的或者当它被调用时执行的可重复使用的代码块 函数的定义与调用匿名函数 不能直接写，一般写在事件里面123456function fn() &#123;&#125;var fn = function() &#123;&#125;fn();//直接调用document.onclick = fn;//事件调用 函数表达式 —— 匿名函数自执行 ：12345(function()&#123;&#125;)();!function()&#123;&#125;();~function()&#123;&#125;();+function()&#123;&#125;();-function()&#123;&#125;(); 函数的参数1234function fn(a)&#123;//这里的a是形参 alert(a);//参数使用&#125;fn(a)；//这里的a是实参 函数拥有多个参数，注意在使用的时候，形参和实参一一对应参数启始就相当于 函数的局部变量只定义形参不传实参的话，参数就是undefined 有一个函数 传进来的参数个数是不固定的，但是我想把所有参数的和计算出来： arguments 不定参 函数所有参数的集合 获取其中一个参数：下标 获取参数的总个数：length 函数返回值：每个函数中都可以存储数据，存储的数据，可以在函数执行完成之后拿到return 函数返回值（函数执行完成之后，返回的数据）； 只能在函数中使用 return后面跟的值为函数执行后的返回值 每个函数都有返回值，如果我们没有定义，返回值就是undefined 函数中return后边的内容 不会被执行（在函数执行时，会把return后边的数据返回，然后函数执行到此结束）]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>函数</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[数据类型]]></title>
+    <url>%2F2017%2F07%2F28%2Ftitle%2F</url>
+    <content type="text"><![CDATA[数据类型分为标准数据类型和typeof查看类型，主要区别在与函数的划分，在标准数据类型划分里，函数并不属于数据 标准制定的数据类型划分： 数据基本类型： number（数字）：从负无穷到正无穷，以及NaN（not a number） string（字符串）：任何在引号中的一串字符，都是字符串 undefined：未定义 boolean（布尔值）：true false null（空对象）（在标准规定中划分的数据类型） 对象类型（复合类型）： object（对象（包含array））：数组、null、元素对象、object typeof 查看类型：在typeof中数据类型分为:number、string、undefined、boolean、object、function number： number.POSITIVE_INFINITY（正无穷） number.NEGATIVE_INFINITY（负无穷） 从正无穷到负无穷的数字 以及 NAN string ：包含在引号中的一串字符 undefined ：未定义 boolean（布尔值）：true false null（空对象）（在标准规定中划分的数据类型） object（对象（包含array））：数组、null、元素对象、object 空数组不等于空对象，空数组本身是非空对象 函数（在标准里不属于数据）：function null（空对象）：（null不能进行属性操作）数据类型：objectNAN（非数字）： NAN不等于任何东西，并且不等于自己 检测一个内容是否是NAN的时候，可以使用isNAN()； 数据类型：number； isNAN() ： return：ture/false isNAN()隐式调用了number 数据类型转换 ：强制类型转换/显示类型转换 ： parsetInt（要转换的数字，进制）：取整，从左向右一位一位去查看，如果遇到一位是非数字的，就这位之前的数字返回，如果第0位就是非数字，结果NAN； parsetFloat（转换为浮点数）：只认为是10进制，从左向右一位一位的匹配，直到遇到一个非数字（可以匹配一个小数点）就返回这位前边的数字 Number（要转换的数字）：从左向右所有的字符，如果完全符合数字的规则就转换，如果不符合数字的规则就返回NaN num = 布尔值 返回1或0 num 返回NaN num = null 返回0 num = document 返回NaN num = [] 返回 空数组0， 空数组只有一位的时候，会用这位去转换，并且只转换数字和字符串，其他的都是NaN； 数组有多位，都会转换成NaN num = [‘2’]：2; num = [‘2’,3]：NAN num = function 返回NaN 隐式类型转换 （浏览器自己进行转换，其他类型转成数字）：主要调取Number +，+= 当加号左右两侧有一位是字符串时，会把另外一位也转成字符串使用加号时，两边没有字符串时，优先尝试把左右两侧都转换成数字，如果不能转换成数字就转换成字符串进行连接 -，，/，%，-=，=，/=，%= 运算符左右两侧转换成数字 isNAN() : isNaN()会进行隐式类型转换，转换所调用的方法是Number 强制转换成字符串：12a = a.toString();String(a); 强制转换成布尔值：Boolean() ：真：true 非空字符串，非0数字，document，非空对象假：false 空字符串，0，NaN，空对象（null），undefined]]></content>
+      <categories>
+        <category>JS</category>
+      </categories>
+      <tags>
+        <tag>数据类型</tag>
       </tags>
   </entry>
 </search>
